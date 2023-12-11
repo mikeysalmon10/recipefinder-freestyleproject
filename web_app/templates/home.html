@@ -3,25 +3,82 @@
 
 {% block content %}
 
-    <h1>Welcome Recipe Finder!</h1>
+    <!-- Hero Section -->
+    <div class="p-5 bg-image" style="background-image: url('https://images.buyagift.co.uk/common/client/Images/Product/Extralarge/en-GB/107103162-Activity-5.jpg'); height: 400px;">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-black text-center">
+                <h1 class="mb-3">Welcome to Recipe Finder!</h1>
+                <h4 class="mb-3">Discover Recipes Based on Ingredients You Have at Home</h4>
+                <a class="btn btn-primary btn-lg" href="#searchSection" role="button">Find Recipes Now</a>
 
-    <p>This is website that will help you come up with a recipe to make food with ingredients you have at home. All you have to do is inputs the ingredients you have in your fridge. </p>
-
-    <!-- SEE: https://getbootstrap.com/docs/5.2/components/carousel/ -->
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://image.shutterstock.com/image-photo/business-development-success-growing-growth-600w-748617433.jpg" class="d-block w-100" alt="...">
-            </div>
-
-            <div class="carousel-item">
-                <img src="https://image.shutterstock.com/image-photo/double-exposure-hands-making-notes-600w-1577042437.jpg" class="d-block w-100" alt="...">
-            </div>
-
-            <div class="carousel-item">
-                <img src="https://image.shutterstock.com/image-photo/business-documents-on-office-table-600w-414153883.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
     </div>
 
+    <!-- Search Section -->
+    <section id="searchSection" class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <p class="text-center">Enter the ingredients you have, and let us suggest the best recipes for you!</p>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Enter ingredients" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Recipes Section -->
+    <section class="container mt-5">
+        <h2 class="text-center mb-4">Featured Recipes</h2>
+        <div class="row" >
+            <!-- Featured Recipe Cards -->
+            <!-- Repeat this block for each featured recipe -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://assets.epicurious.com/photos/5988e3458e3ab375fe3c0caf/3:2/w_5409,h_3606,c_limit/How-to-Make-Chicken-Alfredo-Pasta-hero-02082017.jpg" class="card-img-top" alt="Recipe Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Chicken Pasta </h5>
+                        <p class="card-text">This is a chicken pasta recipe made with love.</p>
+                        <a href="#" class="btn btn-primary">View Recipe</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2022/08/Caprese-Salad-Recipe.jpg" class="card-img-top" alt="Recipe Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Caprese Salad </h5>
+                            <p class="card-text">Caprese salad is a classic Italian salad made with alternating slices of juicy, ripe tomatoes, and creamy mozzarella.</p>
+                            <a href="#" class="btn btn-primary">View Recipe</a>
+                        </div>
+                    </div>
+            </div>
+            <!-- ... -->
+        </div>
+    </section>
+
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
