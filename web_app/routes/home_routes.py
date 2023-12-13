@@ -21,9 +21,19 @@ def about():
 @home_routes.route("/recipes", methods=["GET", "POST"])
 def recipes():
     if request.method == "POST":
-        ingredients = request.form.get("ingredients")  # Get ingredients from form
-        ingredients_list = ingredients.split(',')  # Split ingredients into a list
-        recipes_data = fetch_recipes(ingredients_list)  # Fetch recipes using the API
-        return render_template("recipes.html", recipes=recipes_data["hits"])  # Render the recipes template with the data
+        # Get ingredients and filters from form
+        ingredients = request.form.get("ingredients")
+        dish_type = request.form.get("dishType")
+        meal_type = request.form.get("mealType")
+
+        # Split ingredients into a list
+        ingredients_list = ingredients.split(',') if ingredients else []
+
+        # Fetch recipes using the API with filters
+        recipes_data = fetch_recipes(ingredients_list, dish_type, meal_type)
+
+        # Render the recipes template with the data
+        return render_template("recipes_results.html", recipes=recipes_data["hits"])
     else:
-        return render_template("home.html")  # Redirect to home if not a POST request
+        # Redirect to home if not a POST request
+        return render_template("home.html")

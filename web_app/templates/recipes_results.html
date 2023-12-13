@@ -25,14 +25,15 @@
                     
                      <!-- Displaying Nutritional Information -->
                      <p class="card-text">
-                        <strong>Nutritional Information:</strong>
+                        <strong>Nutritional Information Per Serving:</strong>
                         <br> Calories: {{ hit['recipe']['totalNutrients']['ENERC_KCAL']['quantity']|round }} kcal
                         <br> Fat: {{ hit['recipe']['totalNutrients']['FAT']['quantity']|round }} g
                         <br> Carbohydrates: {{ hit['recipe']['totalNutrients']['CHOCDF']['quantity']|round }} g
                         <br> Protein: {{ hit['recipe']['totalNutrients']['PROCNT']['quantity']|round }} g
                     </p>
                     
-                    <a href="{{ hit['recipe']['url'] }}" class="btn btn-primary" target="_blank">View Recipe</a>
+                    <a href="{{ hit['recipe']['url'] }}" class="btn btn-success" target="_blank">View Recipe</a>
+
                 </div>
             </div>
         </div>

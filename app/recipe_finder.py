@@ -3,8 +3,16 @@
 import requests
 from app.edamam import API_KEY, APP_ID
 
-def fetch_recipes(ingredients):
-    request_url = f"https://api.edamam.com/api/recipes/v2?type=public&q={'%20'.join(ingredients)}&app_id={APP_ID}&app_key={API_KEY}&field=label&field=ingredientLines&field=image&field=url&field=totalNutrients&field=cuisineType&field=mealType"
+def fetch_recipes(ingredients, dish_type=None, meal_type=None, cuisine_type=None):
+    # Base request URL
+    request_url = f"https://api.edamam.com/api/recipes/v2?type=public&q={'%20'.join(ingredients)}&app_id={APP_ID}&app_key={API_KEY}&field=label&field=ingredientLines&field=image&field=url&field=totalNutrients&field=cuisineType&field=mealType&field=dishType&field=tags&field=calories&field=instructions"
+
+    # Append filters to the request URL if they are provided
+    if dish_type:
+        request_url += f"&dishType={dish_type}"
+    if meal_type:
+        request_url += f"&mealType={meal_type}"
+    
     response = requests.get(request_url)
     if response.status_code == 200:
         return response.json()
@@ -16,6 +24,11 @@ def display_recipe(recipe):
     print("Recipe:", recipe['label'])
 
     print("Ingredients:", ', '.join(recipe['ingredientLines']))
+
+    if 'dishType' in recipe:
+        print("Dish Type:", ', '.join(recipe['dishType']))
+    else:
+        print("Dish Type: Not available")
 
     if 'cuisineType' in recipe:
         print("Cuisine Type:", ', '.join(recipe['cuisineType']))
@@ -37,27 +50,23 @@ def display_recipe(recipe):
         carbs = nutrients.get('CHOCDF', None)
         protein = nutrients.get('PROCNT', None)
 
-        # Displaying the energy as calories
+         # Displaying the energy as calories, rounded to the nearest whole number
         if energy:
-            print(f"Calories: {energy['quantity']} {energy['unit']}")
+            print(f"Calories: {round(energy['quantity'])} {energy['unit']}")
         else:
             print("Calories: Not available")
 
-        # Displaying other macronutrients
+        # Displaying other macronutrients, rounded to the nearest whole number
         for nutrient, value in {'Fat': fat, 'Carbohydrates': carbs, 'Protein': protein}.items():
             if value:
-                print(f"{nutrient}: {value['quantity']} {value['unit']}")
+                print(f"{nutrient}: {round(value['quantity'])} {value['unit']}")
             else:
                 print(f"{nutrient}: Not available")
     else:
         print("Nutritional Information: Not available")
 
 
-def display_instructions(recipe):
-    if 'instructions' in recipe:
-        print("Instructions:", recipe['instructions'])
-    else:
-        print("No instructions available for this recipe.")
+
 
 if __name__ == "__main__":
     print("RECIPE FINDER...")
@@ -72,6 +81,5 @@ if __name__ == "__main__":
         for i, item in enumerate(recipes_data["hits"], start=1):
             print("\nRecipe", i)
             display_recipe(item["recipe"])
-            display_instructions(item["recipe"])
     else:
         print("No recipes found.")

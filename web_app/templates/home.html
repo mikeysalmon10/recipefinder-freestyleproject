@@ -3,30 +3,50 @@
 
 {% block content %} 
 
-    <!-- Hero Section -->
-    <div class="p-5 bg-image" style="background-image: url('https://images.buyagift.co.uk/common/client/Images/Product/Extralarge/en-GB/107103162-Activity-5.jpg'); height: 400px;">
-        <div class="d-flex justify-content-center align-items-center h-100">
-            <div class="text-black text-center">
-                <h1 class="mb-3">Welcome to Cooking Buddy!</h1>
-                <h4 class="mb-3">Discover Recipes Based on Ingredients You Have at Home</h4>
-                <a class="btn btn-primary btn-lg" href="#searchSection" role="button">Find Recipes Now</a>
-
-            </div>
+   <!-- Hero Section -->
+<div class="p-5 bg-image" style="background-image: url('https://images.buyagift.co.uk/common/client/Images/Product/Extralarge/en-GB/107103162-Activity-5.jpg'); height: 400px; background-size: cover; background-repeat: no-repeat; background-position: center;">
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white text-center">
+            <h1 class="mb-3">Welcome to Cooking Buddy!</h1>
+            <h4 class="mb-3">Discover Recipes Based on Ingredients You Have at Home</h4>
         </div>
     </div>
+</div>
 
     <!-- Search Section -->
     <section id="searchSection" class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <p class="text-center">Enter the ingredients you have, and let us suggest the best recipes for you!</p>
-                <form class="d-flex" action="/recipes" method="post">
-                    <input class="form-control me-2" type="search" name="ingredients" placeholder="Enter ingredients" aria-label="Search">
+                <form class="d-flex flex-column align-items-center" action="/recipes" method="post">
+                    <input class="form-control mb-2" type="search" name="ingredients" placeholder="Enter ingredients" aria-label="Search">
+
+                    <!-- Dish Type Filter -->
+                    <select class="form-select mb-2" name="dishType">
+                        <option value="">Select Dish Type</option>
+                        <option value="starter">Starter</option>
+                        <option value="main course">Main Course</option>
+                        <option value="dessert">Desserts</option>
+                        <option value="dessert">Soup</option>
+                        <option value="dessert">Drinks</option>
+                        <option value="dessert">Cocktails</option>
+                        <!-- Add other dish types as needed -->
+                    </select>
+
+                    <!-- Meal Type Filter -->
+                    <select class="form-select mb-2" name="mealType">
+                        <option value="">Select Meal Type</option>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch/Dinner</option>
+                        <option value="breakfast">Snack</option>
+
+                        <!-- Add other meal types as needed -->
+                    </select>
+
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
-    </section>
 
     <!-- Featured Recipes Section -->
     <section class="container mt-5">
