@@ -10,7 +10,7 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
-    <title>Hello, world!</title>
+    <title>Recipe AI</title>
 </head>
 <body>
 
@@ -41,9 +41,8 @@
     -->
     {% set nav_links = [
         ('/about', 'about', 'About'),
-        ('/hello', 'hello', 'Hello'),
-        ('/unemployment/dashboard', 'unemployment_dashboard', 'Unemployment Dashboard'),
-        ('/stocks/form', 'stocks_form', 'Stocks Form'),
+        ('/recipes', 'recipes', 'Recipes'),
+        ('/featured_recipes', 'featured_recipes', 'Featured Recipes'),
     ] -%}
     {% set active_page = active_page|default('home') -%}
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
@@ -56,7 +55,7 @@
                 -->
                 <i class="bi-globe" style="font-size: 1.7rem; color: white;"></i>
                 &nbsp;
-                My Web App
+                Recipe Finder
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,7 +92,7 @@
 
         <footer style="margin-top:2em; margin-bottom:2em;">
         <hr>
-            &copy; Copyright 2022 [Your Name Here] |
+            &copy; Copyright 2023 [Mikey, Queefo, Zaki] |
             <a href="https://github.com/prof-rossetti/intro-to-python/blob/main/exercises/web-app/README.md">Source</a>
         </footer>
     </div>

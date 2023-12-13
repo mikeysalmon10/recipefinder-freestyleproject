@@ -1,4 +1,4 @@
-# settleup-freestyleproject
+# recipefinder-freestyleproject
 
 
 
@@ -45,4 +45,12 @@ FLASK_APP=web_app flask run
 # ... or set FLASK_APP variable via ".env" file
 export FLASK_APP=web_app
 flask run
+```
+
+
+## Testing
+Run Test:
+
+```sh
+pytest
 ```

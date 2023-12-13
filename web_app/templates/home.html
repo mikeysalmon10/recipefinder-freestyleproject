@@ -1,7 +1,7 @@
 {% extends "bootstrap_5_layout.html" %}
 {% set active_page = "home" %}
 
-{% block content %}
+{% block content %} 
 
     <!-- Hero Section -->
     <div class="p-5 bg-image" style="background-image: url('https://images.buyagift.co.uk/common/client/Images/Product/Extralarge/en-GB/107103162-Activity-5.jpg'); height: 400px;">
@@ -20,8 +20,8 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <p class="text-center">Enter the ingredients you have, and let us suggest the best recipes for you!</p>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Enter ingredients" aria-label="Search">
+                <form class="d-flex" action="/recipes" method="post">
+                    <input class="form-control me-2" type="search" name="ingredients" placeholder="Enter ingredients" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
@@ -43,15 +43,15 @@
                         <a href="#" class="btn btn-primary">View Recipe</a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2022/08/Caprese-Salad-Recipe.jpg" class="card-img-top" alt="Recipe Image">
-                        <div class="card-body">
-                            <h5 class="card-title">Caprese Salad </h5>
-                            <p class="card-text">Caprese salad is a classic Italian salad made with alternating slices of juicy, ripe tomatoes, and creamy mozzarella.</p>
-                            <a href="#" class="btn btn-primary">View Recipe</a>
-                        </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2022/08/Caprese-Salad-Recipe.jpg" class="card-img-top" alt="Recipe Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Caprese Salad </h5>
+                        <p class="card-text">Caprese salad is a classic Italian salad made with alternating slices of juicy, ripe tomatoes, and creamy mozzarella.</p>                            
+                        <a href="#" class="btn btn-primary">View Recipe</a>
                     </div>
+                </div>
             </div>
             <!-- ... -->
         </div>
