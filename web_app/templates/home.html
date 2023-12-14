@@ -48,34 +48,43 @@
             </div>
         </div>
 
-    <!-- Featured Recipes Section -->
-    <section class="container mt-5">
-        <h2 class="text-center mb-4">Featured Recipes</h2>
-        <div class="row" >
-            <!-- Featured Recipe Cards -->
-            <!-- Repeat this block for each featured recipe -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://assets.epicurious.com/photos/5988e3458e3ab375fe3c0caf/3:2/w_5409,h_3606,c_limit/How-to-Make-Chicken-Alfredo-Pasta-hero-02082017.jpg" class="card-img-top" alt="Recipe Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Chicken Pasta </h5>
-                        <p class="card-text">This is a chicken pasta recipe made with love.</p>
-                        <a href="#" class="btn btn-primary">View Recipe</a>
+  <!-- Featured Recipes Carousel Section -->
+<section class="container mt-5">
+    <h2 class="text-center mb-4">Featured Recipes</h2>
+    <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for chunk in featured_recipes|batch(3, '&nbsp;') %}
+            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                <div class="row">
+                    {% for recipe in chunk %}
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="{{ recipe['image'] }}" class="card-img-top" alt="{{ recipe['label'] }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ recipe['label'] }}</h5>
+                                <p class="card-text">{{ recipe['source'] if 'source' in recipe else 'Delicious recipe' }}</p>
+                                <a href="{{ recipe['url'] }}" class="btn btn-primary" target="_blank">View Recipe</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2022/08/Caprese-Salad-Recipe.jpg" class="card-img-top" alt="Recipe Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Caprese Salad </h5>
-                        <p class="card-text">Caprese salad is a classic Italian salad made with alternating slices of juicy, ripe tomatoes, and creamy mozzarella.</p>                            
-                        <a href="#" class="btn btn-primary">View Recipe</a>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
-            <!-- ... -->
+            {% endfor %}
         </div>
-    </section>
+        <!-- Carousel Controls -->
+        <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#recipeCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+    </div>
+</section>
+
+
 
 {% endblock %}
 
