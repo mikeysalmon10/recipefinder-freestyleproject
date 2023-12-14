@@ -1,6 +1,6 @@
 # This is the "test/recipe_finder_test.py" file...
 
-from app.recipes_finder import fetch_recipes
+from app.recipe_finder import fetch_recipes
 
 def test_fetch_recipes():
     print("Testing fetch_recipes...")
