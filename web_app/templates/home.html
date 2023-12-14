@@ -14,39 +14,49 @@
 </div>
 
     <!-- Search Section -->
-    <section id="searchSection" class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <p class="text-center">Enter the ingredients you have, and let us suggest the best recipes for you!</p>
-                <form class="d-flex flex-column align-items-center" action="/recipes" method="post">
-                    <input class="form-control mb-2" type="search" name="ingredients" placeholder="Enter ingredients" aria-label="Search">
+<section id="searchSection" class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <p class="text-center">Enter the ingredients you have, and let us suggest the best recipes for you!</p>
+            <form class="d-flex flex-column align-items-center" action="/recipes" method="post">
+                
+                <!-- Search Input with Icon -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input type="search" class="form-control" name="ingredients" placeholder="Enter ingredients" aria-label="Search">
+                </div>
 
-                    <!-- Dish Type Filter -->
-                    <select class="form-select mb-2" name="dishType">
-                        <option value="">Select Dish Type</option>
-                        <option value="starter">Starter</option>
-                        <option value="main course">Main Course</option>
-                        <option value="dessert">Desserts</option>
-                        <option value="dessert">Soup</option>
-                        <option value="dessert">Drinks</option>
-                        <option value="dessert">Cocktails</option>
-                        <!-- Add other dish types as needed -->
-                    </select>
+                <!-- Dish Type Filter inside a Card -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <select class="form-select" name="dishType">
+                            <option value="">Select Dish Type</option>
+                            <option value="starter">Starter</option>
+                            <option value="main course">Main Course</option>
+                            <option value="dessert">Desserts</option>
+                            <option value="soup">Soup</option>
+                            <option value="drinks">Drinks</option>
+                            <option value="cocktails">Cocktails</option>
+                        </select>
+                    </div>
+                </div>
 
-                    <!-- Meal Type Filter -->
-                    <select class="form-select mb-2" name="mealType">
-                        <option value="">Select Meal Type</option>
-                        <option value="breakfast">Breakfast</option>
-                        <option value="lunch">Lunch/Dinner</option>
-                        <option value="breakfast">Snack</option>
+                <!-- Meal Type Filter inside a Card -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <select class="form-select" name="mealType">
+                            <option value="">Select Meal Type</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch/dinner">Lunch/Dinner</option>
+                            <option value="snack">Snack</option>
+                        </select>
+                    </div>
+                </div>
 
-                        <!-- Add other meal types as needed -->
-                    </select>
-
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
         </div>
+    </div>
 
   <!-- Featured Recipes Carousel Section -->
 <section class="container mt-5">
@@ -63,7 +73,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ recipe['label'] }}</h5>
                                 <p class="card-text">{{ recipe['source'] if 'source' in recipe else 'Delicious recipe' }}</p>
-                                <a href="{{ recipe['url'] }}" class="btn btn-primary" target="_blank">View Recipe</a>
+                                <a href="{{ recipe['url'] }}" class="btn btn-success" target="_blank">View Recipe</a>
                             </div>
                         </div>
                     </div>

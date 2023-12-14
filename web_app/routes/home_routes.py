@@ -38,4 +38,4 @@ def recipes():
         return render_template("recipes_results.html", recipes=recipes_data["hits"])
     else:
         # Redirect to home if not a POST request
-        return render_template("home.html")
+        return render_template("recipe_search.html")

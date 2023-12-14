@@ -1,6 +1,6 @@
 # recipefinder-freestyleproject
 
-
+Create and activate a virtual environment:
 
 ## Setup
 ```sh
@@ -22,6 +22,7 @@ Create a ".env" file and paste in the following contents:
 # this is the ".env" file...
 
 EDAMAM_API_KEY="_________"
+EDAMAM_APP_ID ="_________"
 
 ## Usage
 
@@ -30,7 +31,10 @@ Run recipe finder:
 ```sh
 python -m app.recipe_finder
 ```
-
+Run featured recipes:
+```sh
+python -m app.featured_recipes
+```
 
 ## Web
 
